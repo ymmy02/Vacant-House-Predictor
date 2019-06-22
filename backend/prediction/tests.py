@@ -17,3 +17,9 @@ class PredictorFunctionTest(TestCase):
         occupied_pct, vacant_pct = predict(vacant_house_image)
         self.assertTrue(0 <= occupied_pct <= 100)
         self.assertTrue(0 <= vacant_pct <= 100)
+
+    def test_total_100_parcent(self):
+        vacant_house_image = Image.open(settings.TESTIMAGE_ROOT + '/vacant1.jpg').convert('RGB')
+        occupied_pct, vacant_pct = predict(vacant_house_image)
+        total = occupied_pct + vacant_pct
+        self.assertTrue(abs(total - 100) <= 0.01)
