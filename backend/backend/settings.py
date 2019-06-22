@@ -124,3 +124,7 @@ STATIC_URL = '/static/'
 TESTIMAGE_ROOT = (
     os.path.join(BASE_DIR, 'testimage')
 )
+
+MLMODEL_ROOT = (
+    os.path.join(BASE_DIR, 'prediction/mlmodels')
+)
