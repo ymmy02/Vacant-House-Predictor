@@ -82,9 +82,12 @@ export default class Uploader extends Component {
 
 class Result extends Component {
     render() {
+        const textColor = this.props.result === '空き家' ? 'red' : 'blue';
         return (
                 <div className="result">
-                    {this.props.result}と判断されました.
+                    <span style={{ color: textColor}}>
+                    {this.props.result}</span>
+                    と判断されました.
                 </div>
         )
     }
