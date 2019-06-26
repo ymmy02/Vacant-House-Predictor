@@ -16,9 +16,20 @@ export default class Uploader extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-        this.uploadFile(this.state.file).then((res) => {
-            console.log(res.data);
-        })
+        this.uploadFile(this.state.file)
+            .then((res) => {
+                const occupied = res.data.occupied;
+                const vacant   = res.data.vacant;
+                console.log(`Occupied Parcentage: ${occupied}`);
+                console.log(`Vacant Parcentage: ${vacant}`);
+
+                this.setState({
+                    result: this.judgeResult(occupied, vacant)
+                });
+            })
+            .catch((err) => {
+                console.log(err);
+            })
     }
 
     uploadFile(file) {
@@ -31,6 +42,12 @@ export default class Uploader extends Component {
             }
         }
         return  post(url, formData, config)
+    }
+
+    judgeResult(occupied, vacant) {
+        const occupiedMessage = "空き家でないと判断されました"
+        const vacantMessage   = "空き家と判断されました"
+        return occupied > vacant ? occupiedMessage : vacantMessage;
     }
 
     onChange(e) {
