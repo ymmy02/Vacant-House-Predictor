@@ -24,7 +24,7 @@ export default class Uploader extends Component {
     uploadFile(file) {
         const url = 'http://localhost:8000/api/';
         const formData = new FormData();
-        formData.append('file',file)
+        formData.append('image',file)
         const config = {
             headers: {
                 'content-type': 'multipart/form-data'
