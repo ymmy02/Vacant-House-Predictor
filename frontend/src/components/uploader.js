@@ -45,8 +45,8 @@ export default class Uploader extends Component {
     }
 
     judgeResult(occupied, vacant) {
-        const occupiedMessage = "空き家でないと判断されました"
-        const vacantMessage   = "空き家と判断されました"
+        const occupiedMessage = "空き家でない"
+        const vacantMessage   = "空き家"
         return occupied > vacant ? occupiedMessage : vacantMessage;
     }
 
@@ -61,7 +61,7 @@ export default class Uploader extends Component {
     render() {
         return (
             <div>
-                <div className="upload">
+                <div className="upload mt-2 mb-2">
                     <form onSubmit={this.onSubmit}>
                         <input type="file" 
                             accept="image/*"
@@ -70,12 +70,22 @@ export default class Uploader extends Component {
                             className="btn btn-primary" 
                             value="送信"/>
                     </form>
-                    <div className="preview">
+                    <div className="preview mb-2">
                         <img src={this.state.fileUrl} />
                     </div>
+                    { this.state.result!='' ? <Result result={this.state.result}/> : null }
                 </div>
-                <div className="result">{this.state.result}</div>
             </div>
+        )
+    }
+}
+
+class Result extends Component {
+    render() {
+        return (
+                <div className="result">
+                    {this.props.result}と判断されました.
+                </div>
         )
     }
 }
