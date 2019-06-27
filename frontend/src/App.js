@@ -10,7 +10,9 @@ class App extends Component {
     return (
       <Router>
         <div className="container">
-          <h2>空き家画像判別器</h2>
+          <header className="m-3">
+            <h2>空き家画像判別器</h2>
+          </header>
           <Uploader />
         </div>
       </Router>

@@ -71,7 +71,7 @@ export default class Uploader extends Component {
                             value="送信"/>
                     </form>
                     <div className="preview mb-2">
-                        <img src={this.state.fileUrl} />
+                        <img src={this.state.fileUrl} width="200" />
                     </div>
                     { this.state.result!='' ? <Result result={this.state.result}/> : null }
                 </div>
@@ -85,7 +85,7 @@ class Result extends Component {
         const textColor = this.props.result === '空き家' ? 'red' : 'blue';
         return (
                 <div className="result">
-                    <span style={{ color: textColor}}>
+                    <span style={{ color: textColor }}>
                     {this.props.result}</span>
                     と判断されました.
                 </div>
