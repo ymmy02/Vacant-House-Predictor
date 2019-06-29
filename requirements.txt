@@ -1,0 +1,12 @@
+Django==2.1.9
+django-cors-headers==3.0.2
+djangorestframework==3.9.4
+Keras==2.2.4
+Keras-Applications==1.0.7
+Keras-Preprocessing==1.0.9
+numpy==1.15.2
+Pillow==6.0.0
+scipy==1.1.0
+tensorboard==1.13.1
+tensorflow==1.13.1
+tensorflow-estimator==1.13.0
