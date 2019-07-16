@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import axios, { post } from 'axios';
+import './uploader.css';
+import { post } from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class Uploader extends Component {
@@ -51,9 +52,12 @@ export default class Uploader extends Component {
     }
 
     onChange(e) {
+        const file = e.target.files[0];
+        const fileUrl = file ? URL.createObjectURL(file) : null;
+        document.getElementById('input-label').textContent = file ? file.name : '画像を選択';
         this.setState({
             file   : e.target.files[0],
-            fileUrl: URL.createObjectURL(e.target.files[0]),
+            fileUrl: fileUrl,
             result : ''
         });
     }
@@ -63,10 +67,16 @@ export default class Uploader extends Component {
             <div>
                 <div className="upload mt-2 mb-2">
                     <form onSubmit={this.onSubmit}>
+                    <div class="custom-file">
                         <input type="file" 
                             accept="image/*"
+                            className="custom-file-input"
+                            id="customFile"
                             onChange={this.onChange}/>
+                        <label id="input-label" class="custom-file-label" for="customFile">画像を選択</label>
+                    </div>
                         <input type="submit"
+                            id="submit-button"
                             className="btn btn-primary" 
                             value="送信"/>
                     </form>
