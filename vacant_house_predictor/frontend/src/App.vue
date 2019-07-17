@@ -1,28 +1,28 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <header class="header">
+      <h1>空き家判別機</h1>
+    </header>
+    <Predictor />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Predictor from './components/Predictor.vue';
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Predictor
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.header {
+  padding: 10px 0 10px 0;
+  color: #fafdff;
+  background-color: #4e454a;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
