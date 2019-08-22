@@ -4,7 +4,7 @@
 Django Rest Framework
 
 ## Front-end
-React.js
+Vue.js
 
 ## Run on local environment
 
